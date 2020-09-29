@@ -10,7 +10,11 @@ public class Programa {
 			
 			Scanner leitor = new Scanner(System.in);			
 			 
-			System.out.println("Olá! \n Digite 1 para abrir pedido. \n Digite 2 para inserir itens aos cardápios. \n Digite 3 para atualizar itens dos cardápios. \n Digite 4 para excluir itens dos cardápios.");
+			System.out.println(
+					"Olá! \n"
+					+ "Digite 1 para abrir pedido. \n"
+					+ "Digite 2 para inserir itens aos cardápios. \n"
+					+ "Digite 3 para buscar cardápios.");
 			int op = leitor.nextInt();
 			
 			switch (op) {
@@ -19,7 +23,7 @@ public class Programa {
 				MenuPrincipal.cardapio();
 				break;
 			case 2:
-				NovoProduto novoProduto = new NovoProduto();
+				Cardapio novoProduto = new Cardapio();
 				try {
 					novoProduto.incluir();
 				} catch (IOException e) {
@@ -28,7 +32,8 @@ public class Programa {
 				}
 				break;
 			case 3:
-				AtualizarProduto atualizarProduto = new AtualizarProduto();	
+				Cardapio cardapio = new Cardapio();
+				cardapio.buscarCardapio();	
 				
 				break;
 			case 4:
