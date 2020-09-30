@@ -20,7 +20,7 @@ public class MenuPrincipal {
 	}
 		
 	
-		public void cardapio() throws FileNotFoundException {
+	public void cardapio() throws FileNotFoundException {
 			
 		this.l = new Scanner(System.in);							
 		System.out.println("Qual cardapio deseja vizualizar? \n(1) Bebidas \n(2)Vinhos \n(3)Pratos \n(4)Fechar pedido");

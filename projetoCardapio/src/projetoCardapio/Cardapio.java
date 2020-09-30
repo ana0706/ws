@@ -60,7 +60,7 @@ public class Cardapio {
 		gravador.close();		
 	}
 	 
-	 public void incluir() throws IOException {
+	public void incluir() throws IOException {
 		 this.leitor = new Scanner(System.in);
 		 System.out.println("Digite o valor correspondente a lista desejada:\n (1)bebidas (2) vinhos (3) pratos. \n (4)Adicionar outro Produto. \n (5)Sair");
 		 int opcao = this.leitor.nextInt();
@@ -90,7 +90,7 @@ public class Cardapio {
 			}			 
 	 }	 
 	 
-	 public void buscarCardapio() throws Exception {
+	public void buscarCardapio() throws Exception {
 			this.leitor = new Scanner(System.in);
 			System.out.println("Qual cardapio deseja atualizar? \n(1)Bebidas \n(2)Vinhos \n(3)Pratos");
 			this.op = leitor.nextInt();
@@ -118,7 +118,7 @@ public class Cardapio {
 			}	
 		}
 	 
-	 public void lista(File arquivo, boolean seExtensaoCsv){		 
+	public void lista(File arquivo, boolean seExtensaoCsv){		 
 		 try {
 			this.leitor = new Scanner(arquivo);
 		} catch (FileNotFoundException e) {
@@ -157,7 +157,7 @@ public class Cardapio {
 			
 	 }
 			
-	 public void buscarItem() throws Exception{ 		
+	public void buscarItem() throws Exception{ 		
 		 for(int i = 0; i < this.ListaProdutos.size(); i++) {
 			 String item = this.ListaProdutos.get(i).getNome();
 				if (item.contains(this.query)) {
@@ -259,10 +259,8 @@ public class Cardapio {
 			System.out.println("Opção Inválida!");
 			alterarItem();
 			break;
-	}
-	
 	}	
-	
+	}		
 }	 
 
 
