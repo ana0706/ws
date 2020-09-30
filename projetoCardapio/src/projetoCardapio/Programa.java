@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Programa {
-		public static void main(String[] Args) throws FileNotFoundException {					
+		public static void main(String[] Args) throws Exception {					
 			//Inicialização do cardapio	
 			
 			
@@ -33,11 +33,10 @@ public class Programa {
 				break;
 			case 3:
 				Cardapio cardapio = new Cardapio();
-				cardapio.buscarCardapio();	
-				
+				cardapio.buscarCardapio();							
 				break;
 			case 4:
-				ExcluirProduto excluirProduto = new ExcluirProduto();
+				//uu
 				break;				
 			default:
 				if(op >=5) {
