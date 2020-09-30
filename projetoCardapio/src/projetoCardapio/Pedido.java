@@ -3,6 +3,7 @@ package projetoCardapio;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Pedido {
 	private FileWriter arquivo;
@@ -14,7 +15,7 @@ public class Pedido {
 	
 	public Pedido(int item, String nome, double preco, String obs) {
 		try {
-			arquivo = new FileWriter("/home/ana-caroline/ws/pedidos.txt", true);
+			this.arquivo = new FileWriter("/home/ana-caroline/ws/pedidos.txt", true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -28,7 +29,7 @@ public class Pedido {
 	}
 	
 	public void pularLinha(){
-		BufferedWriter gravador = new BufferedWriter(arquivo);
+		BufferedWriter gravador = new BufferedWriter(this.arquivo);
 		try {
 			gravador.newLine();
 		} catch (IOException e) {
@@ -50,9 +51,10 @@ public class Pedido {
 	}
 	
 	public void gravarPedido() throws IOException {
-		BufferedWriter gravador = new BufferedWriter(arquivo);
+		 
+		PrintWriter gravador = new PrintWriter(this.arquivo);
 						
-		gravador.write( this.item + "\t " + this.preco + "\t" + this.nome + "\nObs:" + this.obs);		
+		gravador.println( this.item + "\t " + this.preco + "\t" + this.nome + "\nObs:" + this.obs);		
 		gravador.close();		
 	}
 }

@@ -42,7 +42,7 @@ public class Cardapio {
 	
 	public void detalheProduto() throws FileNotFoundException {
 		this.leitor = new Scanner(System.in);
-		System.out.println("Digite o valor do produto:(ex: 20,90)");
+		System.out.println("Digite o valor do produto:(ex: 00,00)");
 		this.valor = this.leitor.nextDouble();		
 		System.out.println("Digite o nome do produto:");
 		this.nome = this.leitor.next();
@@ -92,7 +92,7 @@ public class Cardapio {
 	 
 	 public void buscarCardapio() throws Exception {
 			this.leitor = new Scanner(System.in);
-			System.out.println("Qual cardapio deseja atualizar? \n(1)Bebidas \n(2)Vinhos \n(3)Pratos \n(4)Sair");
+			System.out.println("Qual cardapio deseja atualizar? \n(1)Bebidas \n(2)Vinhos \n(3)Pratos");
 			this.op = leitor.nextInt();
 			System.out.println("Qual item deseja buscar?");
 			this.query = leitor.next();
@@ -109,11 +109,9 @@ public class Cardapio {
 			case 3:
 				lista(this.prato, true);
 				buscarItem();
-				break;
-			case 4:
-				break;			
+				break;	
 			default:
-				if(this.op >= 5) {
+				if(this.op >= 4) {
 					System.out.println("Opção inválida!");					
 				};
 				break;
@@ -164,7 +162,7 @@ public class Cardapio {
 			 String item = this.ListaProdutos.get(i).getNome();
 				if (item.contains(this.query)) {
 					this.posicao = this.ListaProdutos.get(i);
-					System.out.println("item encontrado:" +item);
+					System.out.println("item encontrado:" + item);
 					break;
 				}else {
 					System.out.println("Item não econtrado");
@@ -176,7 +174,7 @@ public class Cardapio {
 	 
 	public void opcaoItem() throws Exception {
 		this.leitor = new Scanner(System.in);
-		System.out.println("\nDigite: \n(1)Deletar item \n(2)Alterar item \n(3)Buscar outro item \n(4)Sair");
+		System.out.println("\nDigite: \n(1)Deletar item \n(2)Alterar item \n(3)Buscar outro item");
 		int opcao = leitor.nextInt();
 		switch(opcao) {
 		case 1:
@@ -184,16 +182,14 @@ public class Cardapio {
 			salvarLista();
 			break;				
 		case 2:
-			//incluir alteração
-			
+			alterarItem();
+			salvarLista();
 			break;
 		case 3:
 			buscarCardapio();
-			break;
-		case 4:
 			break;			
 		default:
-			if(opcao >= 5) {
+			if(opcao >= 4) {
 				System.out.println("Opção inválida!");					
 			};
 			break;
@@ -217,6 +213,7 @@ public class Cardapio {
 				}
 			gravador.close();			
 		break;
+		
 		case 2:
 			FileWriter arqVinho = new FileWriter("/home/ana-caroline/ws/vinhos-tabulados.txt", false);
 			PrintWriter grava = new PrintWriter(arqVinho);
@@ -227,6 +224,7 @@ public class Cardapio {
 				}
 			grava.close();			
 		break;
+		
 		case 3:
 			FileWriter arqPrato = new FileWriter("/home/ana-caroline/ws/pratos.csv", false);
 			PrintWriter g = new PrintWriter(arqPrato);
@@ -240,8 +238,30 @@ public class Cardapio {
 		}	 
 }
 	
+	public void alterarItem() {
+		this.leitor = new Scanner (System.in);
+		System.out.println("Deseja alterar (1) Preço (ex: 00,00) ou (2) Nome");
+		int opcao = leitor.nextInt();
+		
+		switch(opcao) {
+		case 1:
+			System.out.println("Digite novo preço:");
+			double precoNovo = leitor.nextDouble();
+			this.posicao.setPreco(precoNovo);	
+						
+			break;				
+		case 2:
+			System.out.println("Digite novo nome:");
+			String novoNome = leitor.next();
+			this.posicao.setNome(novoNome);
+			break;
+		case 3:
+			System.out.println("Opção Inválida!");
+			alterarItem();
+			break;
+	}
 	
-	
+	}	
 	
 }	 
 

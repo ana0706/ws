@@ -14,7 +14,7 @@ public class Programa {
 					"Olá! \n"
 					+ "Digite 1 para abrir pedido. \n"
 					+ "Digite 2 para inserir itens aos cardápios. \n"
-					+ "Digite 3 para buscar cardápios.");
+					+ "Digite 3 para buscar itens e alterar cardápios.");
 			int op = leitor.nextInt();
 			
 			switch (op) {
@@ -34,12 +34,9 @@ public class Programa {
 			case 3:
 				Cardapio cardapio = new Cardapio();
 				cardapio.buscarCardapio();							
-				break;
-			case 4:
-				//uu
 				break;				
 			default:
-				if(op >=5) {
+				if(op >=4) {
 					main(Args);
 				}
 				break;
